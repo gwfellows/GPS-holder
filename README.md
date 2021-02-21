@@ -1,6 +1,6 @@
 # GPS-holder
 
-This repository contains CAD source files for two 3d printed devices I designed to secure a GPS unit and it's antenna (puck) a ship. There are two parts, the casing for the GPS body and the bracket to hold the puck.
+This repository contains CAD source files for two 3d printed devices I designed to secure a GPS unit and it's antenna (puck) to a ship. There are two parts, the casing for the GPS body and the bracket to hold the puck.
 
 | <img src="imgs/puck_holder_and_casing_in_use.jpg" width="100%"/> |
 | :--------------------------------------------------------------: |
