@@ -23,7 +23,7 @@ module base2() {
 		rotate([90, 0, 0]) 
 			cylinder(h = 100, center = true, d = (railD + tolerance));
 		translate([(-width / 2), 0, 1]) 
-			cube([1000, 1000, 14], center = true);
+			cube([1000, 1000, 14+3.74*2], center = true);//14
 		for(i = [1 : 1 : 4]) 
 			rotate([0, 0, (90 * i)]) 
 				translate([(((railD / 2) + 5) + 4), 0, -5]) 
@@ -86,7 +86,7 @@ wallThickness = 2;
 magnetD       = 50.89;
 magnetH       = 1.85;
 puckD         = 57;
-puckRimH      = 6;
+puckRimH      = 6-3;//6;
 railD         = 43;
 height        = 0;
 width         = 43;
