@@ -53,8 +53,8 @@ module pin() {
     rotate([0,0,180])
 	sequentialHull() {
 		translate([0, 0, 0]) scale([1, 1.3, 1]) t_cylinder(d = pinTopD, h = 0.1,v=1);
-		translate([0, 0, 1]) t_cylinder(d = pinD, h = 0.1);
-		translate([0, 0, 3]) t_cylinder(d = pinD, h = 0.1);
+		translate([0, 0, 1]) t_cylinder(d = pinD, h = 0.1,v=1);
+		translate([0, 0, 3]) t_cylinder(d = pinD, h = 0.1,v=1);
 		translate([0, 0, 5]) scale([1, 1.3, 1]) t_cylinder(d = pinTopD, h = 0.1,v=1);
 		translate([0, 0, 6]) scale([1, 1.3, 1]) t_cylinder(d = pinTopD, h = 0.1,v=1);
 	}
@@ -68,10 +68,11 @@ module pins() {
 }
 module magnetCutouts() {
 	for(x = [-1 : 2 : 1]) 
-    	for(i = [(-45 / 2) : 45 : (45 / 2)]) 
+    	for(i = [(-80 / 2) : 80 : (80 / 2)]) 
     		rotate([0, i, 0]) 
     			translate([0, (x * 10), 0]) 
-    				cylinder(d = (smallMagnetD + tolerance), h = ((smallMagnetH + (railD / 2)) + (tolerance / 2)));
+                    translate([0,0,tolerance/2+20])
+    				cylinder(d1 = (smallMagnetD + tolerance)+ 11, d2 = (smallMagnetD + tolerance), h = smallMagnetH + (railD / 2)-20);
 }
 module holder() {
 	pins();

@@ -20,11 +20,16 @@ module fillet(r){
      offset(-r) offset(r) offset(r) offset(-r) children();
 }
 
-translate([-5,10,25])
-rotate([-90,90,0])
-rotate_extrude(angle=90){
-    translate([20,0]) square([5,40]);
+translate([-25,10,0]) cube([20,40,5]);
+
+difference(){
+    translate([-25,10,5]) cube([5,40,5]);
+    translate([-20,52.5,10]) rotate([90,0,0]) cylinder(d=10,h=45);
 }
+
+
+translate([-30,10,0]) cube([5,40,25]);
+
 
 translate([-27.5,50,25])
 rotate([90,0,0])
