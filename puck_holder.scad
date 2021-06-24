@@ -68,11 +68,19 @@ module pins() {
 }
 module magnetCutouts() {
 	for(x = [-1 : 2 : 1]) 
-    	for(i = [(-80 / 2) : 80 : (80 / 2)]) 
+    	for(i = [(-85 / 2) : 85 : (85 / 2)]) 
     		rotate([0, i, 0]) 
     			translate([0, (x * 10), 0]) 
-                    translate([0,0,tolerance/2+20])
-    				cylinder(d1 = (smallMagnetD + tolerance)+ 11, d2 = (smallMagnetD + tolerance), h = smallMagnetH + (railD / 2)-20);
+                    translate([0,0,tolerance/2+20]){
+                    hull(){
+                        rotate([0,0,i/(-85 / 2)*(-90)]) 
+                            t_cylinder(d=(smallMagnetD + tolerance)+ 10,center=false,h=0.1,db=true);
+                        translate([0,0,smallMagnetH + (railD / 2)-20]){ 
+                            rotate([0,0,-90]) t_cylinder(d=smallMagnetD + tolerance,center=false,h=0.1,db=true);
+                        }
+                    }
+    				cylinder(d1 = (smallMagnetD + tolerance)+ 10, d2 = (smallMagnetD + tolerance), h = smallMagnetH + (railD / 2)-20);
+                }
 }
 module holder() {
 	pins();
@@ -96,10 +104,18 @@ module rail() {
 		cylinder(h = 300, center = true, d = railD);
 }
 
-module t_cylinder(h, center, d, v=1/3){
-    hull(){
+module t_cylinder(h, center, d, v=1/3, db=false){
+    if (db){
+        hull(){
+        cylinder(h=h,center=center,d=d);
+        translate([-(d*v)/2,-d/2,-h/2]) cube([d*v,d,h]);
+        }
+    }
+    else {
+        hull(){
         cylinder(h=h,center=center,d=d);
         translate([-(d*v)/2,0,-h/2]) cube([d*v,d/2,h]);
+        }
     }
 }
 
