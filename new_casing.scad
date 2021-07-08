@@ -26,13 +26,18 @@ module fillet(r){
 difference(){
     union(){
         difference(){
-            translate([-25+6,10+6,5]) cube([10,40,10]);
-            translate([-15+6,52.5+6,15]) rotate([90,0,0]) cylinder(d=20,h=45,$fn=4);
-}
-        translate([-25+6,10+6,0]) cube([20-6,40,5]);
-        translate([-30+6,10+6,0]) cube([5,40,25]);
+            hull(){
+                translate([-15+6,50+6,15]) rotate([90,0,0]) cylinder(d=30,h=40,$fn=4*100);
+                translate([-21+6,10+6,0]) cube([20-6,40,5]);
+            }
+            translate([-15+6,52.5+6,15]) rotate([90,0,0]) cylinder(d=20,h=45,$fn=4*100);
+            translate([-9.5,0,0]) cube(1000,center=false);
+            translate([-100,0,15]) cube(1000,center=false);
     }
-    translate([-80,0,50]) rotate([0,45,0]) cube([100,100,13]);
+        translate([-30+6,10+6,15]) cube([5,40,25-15]);
+        translate([-21+6,10+6,0]) cube([20-6,40,5]);
+    }
+    translate([-80,0,50]) rotate([0,45,0]) cube([100,100,10.54]);
 }
 
 
