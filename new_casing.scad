@@ -4,8 +4,8 @@ difference(){
     linear_extrude(5)
         difference(){
         fillet(5){
-            square([130,90]);
-            translate([-10,10]) square([10,40]);
+            square([130-6,86]);
+            translate([-10,10+6]) square([10,40]);
         }
         translate([-15,10]) square([10,40]);
     }
@@ -20,17 +20,22 @@ module fillet(r){
      offset(-r) offset(r) offset(r) offset(-r) children();
 }
 
-translate([-25,10,0]) cube([20,40,5]);
+
+
 
 difference(){
-    translate([-25,10,5]) cube([5,40,5]);
-    translate([-20,52.5,10]) rotate([90,0,0]) cylinder(d=10,h=45);
+    union(){
+        difference(){
+            translate([-25+6,10+6,5]) cube([10,40,10]);
+            translate([-15+6,52.5+6,15]) rotate([90,0,0]) cylinder(d=20,h=45,$fn=4);
+}
+        translate([-25+6,10+6,0]) cube([20-6,40,5]);
+        translate([-30+6,10+6,0]) cube([5,40,25]);
+    }
+    translate([-80,0,50]) rotate([0,45,0]) cube([100,100,13]);
 }
 
 
-translate([-30,10,0]) cube([5,40,25]);
-
-
-translate([-27.5,50,25])
+translate([-27.5+6,50+6,25])
 rotate([90,0,0])
 cylinder(d=5,h=40);
