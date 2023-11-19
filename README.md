@@ -23,6 +23,6 @@ Autodesk Inventor part file here: [casing.ipt](casing.ipt)
 | :---------------------------------------------------: |
 |             CAD render of the puck holder             |
 
-This bracket attaches via magnets and a strap to a rail on the ship and provides a flat surface for the GPS puck to be attached. The top section includes a metal washer that allows the GPS puck to be magnetically mounted.
+This bracket attaches via magnets and a strap to a rail on the ship and provides a flat surface for the GPS puck to be attached. The top section includes a metal washer that allows the GPS puck to be magnetically mounted. I designed this for ease of printing, so I kept all overhangs shallow.
 
 OpenSCAD source file here: [puck_holder.scad](puck_holder.scad)
